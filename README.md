@@ -3,5 +3,6 @@ Personal repository to track what I’ve learned about Python from exercises, wo
 
 ### What is:
 
-! (Example: !pip, ! scp, etc) <br>
-Definition: Run this command in the underlying shell (bash) instead of Python.
+**!** <br>
+Definition: Run this command in the underlying shell (bash) instead of Python. <br>
+Use case: !pip, !scp, etc
