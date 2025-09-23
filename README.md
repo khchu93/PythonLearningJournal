@@ -4,10 +4,16 @@ Personal repository to track what I’ve learned about Python from exercises, wo
 ### Knowledge map
 - Class <br>
 - - Instance/Object <br>
-  - Member of a class/object <br>
   - Dunder/magic method
+  - Member of a class/object <br>
   - - Methods <br>
     - Attributes
+
+- OOP
+- - Encapsulation
+  - - Public
+    - Protected
+    - Private
 
 
 ### What is:
@@ -76,9 +82,27 @@ Use case: <br>
 circle_1.calculate_area()
 ```
 
-**Non-public** attributes
-Defnition: members that shouldn't be used outside their defining class, create a public method to access those non-public instance variables or methods, include a leading underscore in names
+**Protected** attributes
+Definition: members that shouldn't be used outside their defining class (but they're still accessible), create a public method to access those non-public instance variables or methods, include a leading underscore in names
 Use case: <br>
 ```
-_radius, _calculate_area()
+self._radius, _calculate_area()
+```
+
+**Private** attributes
+Definition: same as protected, but with two leading underscores in names, more difficult to access (**Name Mangling**)
+Use case: <br>
+``
+self.__radius      #circle_1._Circle__radius, instead of circle_1.__radius to access the instance variable
+```
+
+**Name Mangling**
+```
+class Dog:
+    def __init__(self, name):
+        self.__secret = "likes bacon"   # private
+
+dog = Dog("Buddy")
+print(dog.__secret)         # ❌ AttributeError
+print(dog._Dog__secret)     # ✅ works, but hacky
 ```
