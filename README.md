@@ -7,6 +7,9 @@ Personal repository to track what I’ve learned about Python from exercises, wo
   - Dunder/magic method
   - Member of a class/object <br>
   - - Methods <br>
+    - - Instance methods
+      - Class methods
+      - Static methods
     - Attributes
 
 - OOP
@@ -37,10 +40,10 @@ Definition: return the id of the variable. It can be used to check if you're wor
 Definition: a blueprint that specifies the data and behavior of an object/instance that it can instantiate from
 Use case: <br>
 ```
-class Circle:                          #class name should start with an uppercase
+class Circle:                          #class, name should start with an uppercase
   def __init__(self, radius):          #object initializer, radius = parameter/argument
     self.radius = radius               #instance variable (attribute)
-  def calculate_area(self):            #method name should start with lowercase and contains a verb (except for dunder method)
+  def calculate_area(self):            #method, name should start with lowercase and contains a verb (except for dunder method)
     area = math.pi * self.radius ** 2  #class variable
     return area
 ```        
@@ -70,7 +73,62 @@ area
 ```
 
 **Methods** <br>
-Definition: different behaviors that objects will show
+Definition: different behaviors that objects will show, inside a class
+Use case: <br>
+```
+class Circle:
+  def calculate_area(self):
+```
+
+**Functions** <br>
+Definition: same as method, but outside a class
+Use case: <br>
+```
+def calculate_area(self):
+```
+
+**Instance Methods** <br>
+Definition: methods that use **self** to access **instance attributes** and **class attributes** (to store or modify), needs data from a specific object/instance
+Use case: <br>
+```
+class Example:
+    def instance_method(self):
+        return f"I'm tied to the instance: {self}"
+
+obj = Example()
+print(obj.instance_method())
+```
+
+**Class Methods** <br>
+Definition: methods that use **cls** to access **class attributes**, works with the class itself
+Use case: <br>
+```
+class Example:
+    count = 0
+
+    def __init__(self):
+        Example.count += 1
+
+    @classmethod                                      # identify the following method as class method
+    def how_many(cls):                                # cls refers to Example (class name) itself
+        return f"There are {cls.count} instances."    # class attribute can still be accessed by calling the class name directly: Example.count
+
+a = Example()
+b = Example()
+print(Example.how_many())  # "There are 2 instances."
+```
+
+**Static Methods** <br>
+Definition: behaves just like a normal function, but is grouped inside the class, doesn't have access to instance attributes (can still access class attributes with the class name directly), a helper function bundled with the class
+Use case: <br>
+```
+class MathUtils:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(MathUtils.add(3, 5))  # 8
+```
 
 **__init__** <br>
 Definition: a **dunder method** that is also known as the **object initializer** that defines and sets the initial values for the object's attributes
