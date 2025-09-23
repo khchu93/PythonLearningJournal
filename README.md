@@ -5,12 +5,17 @@ Personal repository to track what I’ve learned about Python from exercises, wo
 - Class <br>
 - - Instance/Object <br>
   - Dunder/magic method
+  - - \_\_init\_\_
   - Member of a class/object <br>
-  - - Methods <br>
+  - - Methods/Functions <br>
     - - Instance methods
       - Class methods
+      - - Data class
       - Static methods
     - Attributes
+    - - Class attributes
+      - Instance attributes
+      - Local variables
 
 - OOP
 - - Encapsulation
@@ -41,12 +46,23 @@ Definition: a blueprint that specifies the data and behavior of an object/instan
 Use case: <br>
 ```
 class Circle:                          #class, name should start with an uppercase
+  num_instances = 0                    #class attributes (/variable)
   def __init__(self, radius):          #object initializer, radius = parameter/argument
-    self.radius = radius               #instance variable (attribute)
+    type(self).num_instances += 1      #type(self) is used to modify it without creating a new instance attribute, and friendly to subclasses
+    self.radius = radius               #instance attribute (/variable)
   def calculate_area(self):            #method, name should start with lowercase and contains a verb (except for dunder method)
-    area = math.pi * self.radius ** 2  #class variable
+    area = math.pi * self.radius ** 2  #local variable
     return area
 ```        
+
+**Class attributes**(/variables)<br>
+Definition: a variable that you define in the class body directly, belongs to its containing class, all instances initially reference the same value/object in memory, changing the class attribute via the class propagates to all instances that haven’t overridden it (for those that have overridden it, it will remain to the overridden value)
+
+**Instance attributes**(/variables)<br>
+Definition: a variable that you define inside an **instance method** using the self argument, its data is only available to that instance and defines its state
+
+**Local variable**<br>
+Definition: a temporal variable exists only while the method is running
 
 **Object/Instance** <br>
 Definition: an actual thing built from that blueprint, with its own specific data, created when you instantiate it
@@ -117,6 +133,18 @@ a = Example()
 b = Example()
 print(Example.how_many())  # "There are 2 instances."
 ```
+
+**Data class** (TBD)<br> 
+Definition:
+Use case: <br>
+
+**Module** (TBD)<br> 
+Definition:
+Use case: <br>
+
+**Package** (TBD)<br> 
+Definition:
+Use case: <br>
 
 **Static Methods** <br>
 Definition: behaves just like a normal function, but is grouped inside the class, doesn't have access to instance attributes (can still access class attributes with the class name directly), a helper function bundled with the class
