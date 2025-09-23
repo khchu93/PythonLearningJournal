@@ -48,7 +48,7 @@ Use case: <br>
 class Circle:                          #class, name should start with an uppercase
   num_instances = 0                    #class attributes (/variable)
   def __init__(self, radius):          #object initializer, radius = parameter/argument
-    type(self).num_instances += 1      #type(self) is used to modify it without creating a new instance attribute, and friendly to subclasses
+    type(self).num_instances += 1      #type(self) is used to modify it without creating a new instance attribute, friendly to subclasses
     self.radius = radius               #instance attribute (/variable)
   def calculate_area(self):            #method, name should start with lowercase and contains a verb (except for dunder method)
     area = math.pi * self.radius ** 2  #local variable
@@ -56,7 +56,7 @@ class Circle:                          #class, name should start with an upperca
 ```        
 
 **Class attributes**(/variables)<br>
-Definition: a variable that you define in the class body directly, belongs to its containing class, all instances initially reference the same value/object in memory, changing the class attribute via the class propagates to all instances that haven’t overridden it (for those that have overridden it, it will remain to the overridden value)
+Definition: a variable that you define in the class body directly, belongs to its containing class, all instances initially reference the same value/object in memory, **changing the class attribute via the class propagates to all instances that haven’t overridden it** (for those that have overridden it, it will remain to the overridden value)
 
 **Instance attributes**(/variables)<br>
 Definition: a variable that you define inside an **instance method** using the self argument, its data is only available to that instance and defines its state
