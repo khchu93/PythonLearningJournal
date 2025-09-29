@@ -178,7 +178,7 @@ self._radius, _calculate_area()
 **Private** attributes
 Definition: same as protected, but with two leading underscores in names, more difficult to access (**Name Mangling**)
 Use case: <br>
-``
+```
 self.__radius      #circle_1._Circle__radius, instead of circle_1.__radius to access the instance variable
 ```
 
@@ -191,4 +191,13 @@ class Dog:
 dog = Dog("Buddy")
 print(dog.__secret)         # ❌ AttributeError
 print(dog._Dog__secret)     # ✅ works, but hacky
+```
+
+**map(function, iterable)**
+Definition: applies a function to every item in an iterable (like a list, tuple, or string)
+Use case: <br>
+```
+numbers = ["1", "2", "3", "4"]
+result = map(int, numbers)
+print(list(result))  # [1, 2, 3, 4]
 ```
