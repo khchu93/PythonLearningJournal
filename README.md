@@ -201,3 +201,6 @@ numbers = ["1", "2", "3", "4"]
 result = map(int, numbers)
 print(list(result))  # [1, 2, 3, 4]
 ```
+
+**type(variable)**
+Definition: return the type of variable
