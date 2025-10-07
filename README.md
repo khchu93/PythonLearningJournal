@@ -205,8 +205,8 @@ print(list(result))  # [1, 2, 3, 4]
 **type(variable)**
 Definition: return the type of variable
 
-**with** function **as** variable
-Definition: use to manage resources safely and automatically, to open and close the objects automatically, it works with any objects that have __enter__() and __exit__()
+**with** function **as** variable<br>
+Definition: use to manage resources safely and automatically, to open and close the objects automatically, it works with any objects that have \_\_enter__() and \_\_exit__()<br>
 Use case:<br>
 ```
 with open("file.txt", "r") as f:
