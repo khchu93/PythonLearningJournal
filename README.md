@@ -204,3 +204,19 @@ print(list(result))  # [1, 2, 3, 4]
 
 **type(variable)**
 Definition: return the type of variable
+
+**with** function **as** variable
+Definition: use to manage resources safely and automatically, to open and close the objects automatically, it works with any objects that have __enter__() and __exit__()
+Use case:<br>
+```
+with open("file.txt", "r") as f:
+  data = f.read()
+```
+This replaces the following:
+```
+f = open("file.txt", "r")     # calls __enter__()
+try:
+    data = f.read()
+finally:
+    f.close()                 # calls __exit__() automatically
+```
