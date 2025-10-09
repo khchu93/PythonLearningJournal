@@ -220,3 +220,24 @@ try:
 finally:
     f.close()                 # calls __exit__() automatically
 ```
+
+**\*** unpacking operator<br>
+Definition: unpacks the list argument into individual positional arguments<br>
+Use case: <br>
+```
+req_layers = [layer1, layer2, layer3]
+nn.Sequential(*req_layers)
+# what it does:  Sequential(
+                    layer1,
+                    layer2,
+                    layer3
+                  )
+```
+While:
+```
+nn.Sequential(req_layers)
+# what it does:  Sequential([
+                    [layer1, layer2, layer3]
+                  ])
+```
+This will raise an error because Sequential expects each layer separately, not as a list.
